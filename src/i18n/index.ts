@@ -1,4 +1,4 @@
-import { createI18n } from 'vue-i18n'
+import {createI18n} from 'vue-i18n'
 import en from '@/i18n/en.json'
 import zh from '@/i18n/zh.json'
 
@@ -10,7 +10,7 @@ const messages = {
   zh,
 }
 
-const i18n = createI18n<[MessageSchema], 'en' | 'zh'>({
+const i18n = createI18n<[MessageSchema], string>({
   legacy: false,
   locale: 'en',
   fallbackLocale: 'en',

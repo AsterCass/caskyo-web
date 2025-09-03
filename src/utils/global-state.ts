@@ -3,7 +3,6 @@ import {defineStore} from 'pinia'
 interface GlobalState {
   curThemeName: string
   language: string
-  screenMini: boolean
   isLogin: boolean
   userToken: string
   userData: null | {
@@ -35,7 +34,6 @@ export const useGlobalStateStore = defineStore('globalState', {
   state: (): GlobalState => ({
     curThemeName: 'light',
     language: 'en',
-    screenMini: false,
     isLogin: false,
     userToken: '',
     userData: null,
@@ -47,9 +45,6 @@ export const useGlobalStateStore = defineStore('globalState', {
     },
     updateLanguage(code: string) {
       this.language = code
-    },
-    updateScreenMini(isMini: boolean) {
-      this.screenMini = isMini
     },
     updateToken(token: string) {
       if (token) {

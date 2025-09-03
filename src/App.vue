@@ -1,11 +1,19 @@
 <template>
-  <q-btn>13242</q-btn>
+  <router-view/>
 </template>
 
 <script setup lang="ts">
+import {onMounted} from "vue";
+import {initGlobalState} from "@/utils/global-tools.ts";
+
+onMounted(() => {
+  initGlobalState()
+})
 
 </script>
 
-<style scoped>
+<style lang="scss">
+@import '@/styles/main.scss';
+
 
 </style>
