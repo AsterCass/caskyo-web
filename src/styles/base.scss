@@ -1,0 +1,227 @@
+// https://www.figma.com/community/plugin/1034969338659738588/material-theme-builder
+
+:root {
+  // 主色
+  // 界面的主色调，通常用于按钮、选中状态、应用栏
+  --cy-primary: rgb(104 104 116);
+  --cy-on-primary: rgb(255 255 255);
+  // 主色调的浅色背景，用于卡片、表单、容器背景
+  --cy-primary-container: rgb(245 239 253);
+  --cy-on-primary-container: rgb(88 79 88);
+
+  // 辅助色
+  --cy-secondary: rgb(88 98 103);
+  --cy-on-secondary: rgb(255 255 255);
+  --cy-secondary-container: rgb(235 231 236);
+  --cy-on-secondary-container: rgb(78 75 79);
+
+  // 点缀色
+  --cy-tertiary: rgb(82 94 110);
+  --cy-on-tertiary: rgb(255 255 255);
+  --cy-tertiary-container: rgb(218 226 233);
+  --cy-on-tertiary-container: rgb(65 70 60);
+
+  // 背景（最底层的颜色，不可交互的纯背景区域）、表面（组件和元素的背景色）、阴影、遮罩（一般需要配合 opacity 使用）
+  --cy-background: rgb(245 250 251);
+  --cy-on-background: rgb(23 29 30);
+  --cy-surface: rgb(245 250 251);
+  --cy-on-surface: rgb(23 29 30);
+  --cy-surface-variant: rgb(219 228 230);
+  --cy-on-surface-variant: rgb(63 72 74);
+  --cy-shadow: rgb(0 0 0);
+  --cy-scrim: rgb(0 0 0);
+
+  // 边框
+  --cy-outline: rgb(125 121 122);
+  --cy-outline-variant: rgb(191 200 202);
+
+  // dim 用于创建视觉层次和状态变化的重要颜色变体，一般用于悬停、非活跃状态、加载或禁用状态
+  --cy-surface-dim: rgb(213 219 220);
+  --cy-surface-bright: rgb(245 250 251);
+  // 表面容器层级，从最底层到最高层
+  --cy-surface-container-lowest: rgb(255 255 255);
+  --cy-surface-container-low: rgb(239 245 246);
+  --cy-surface-container: rgb(233 239 240);
+  --cy-surface-container-high: rgb(227 233 234);
+  --cy-surface-container-highest: rgb(222 227 229);
+
+  // 固定色调，在切换主题的时候不改变，保持品牌一致性
+
+  --cy-primary-fixed: rgb(255 219 200);
+  --cy-on-primary-fixed: rgb(49 19 0);
+  --cy-primary-fixed-dim: rgb(255 182 137);
+  --cy-on-primary-fixed-variant: rgb(110 56 16);
+  --cy-secondary-fixed: rgb(255 219 200);
+  --cy-on-secondary-fixed: rgb(43 23 9);
+  --cy-secondary-fixed-dim: rgb(229 191 169);
+  --cy-on-secondary-fixed-variant: rgb(92 65 48);
+  --cy-tertiary-fixed: rgb(231 229 172);
+  --cy-on-tertiary-fixed: rgb(29 29 0);
+  --cy-tertiary-fixed-dim: rgb(203 201 146);
+  --cy-on-tertiary-fixed-variant: rgb(73 73 30);
+
+
+  // 错误色
+  --cy-error: rgb(186 26 26);
+  --cy-on-error: rgb(255 255 255);
+  --cy-error-container: rgb(255 218 214);
+  --cy-on-error-container: rgb(147 0 10);
+
+  // 警告色
+  --cy-warning: rgb(255, 183, 0);
+  --cy-on-warning: rgb(255 255 255);
+  --cy-warning-container: rgb(255 255 220);
+  --cy-on-warning-container: rgb(220, 130, 0);
+
+  // 通知色
+  --cy-info: rgb(25, 183, 230);
+  --cy-on-info: rgb(255 255 255);
+  --cy-info-container: rgb(220 255 255);
+  --cy-on-info-container: rgb(0, 130, 220);
+
+  // 成功色
+  --cy-positive: rgb(56, 202, 60);
+  --cy-on-positive: rgb(255 255 255);
+  --cy-positive-container: rgb(220 255 220);
+  --cy-on-positive-container: rgb(56, 142, 60);
+}
+
+[data-theme='dark'] {
+  // 主色
+  // 界面的主色调，通常用于按钮、选中状态、应用栏
+  --cy-primary: rgb(220 211 227);
+  --cy-on-primary: rgb(59 54 62);
+  // 主色调的浅色背景，用于卡片、表单、容器背景
+  --cy-primary-container: rgb(85 78 89);
+  --cy-on-primary-container: rgb(245 239 255);
+
+  // 辅助色
+  --cy-secondary: rgb(205 203 209);
+  --cy-on-secondary: rgb(55 52 57);
+  --cy-secondary-container: rgb(77 74 80);
+  --cy-on-secondary-container: rgb(235 231 237);
+
+  // 点缀色
+  --cy-tertiary: rgb(188 197 190);
+  --cy-on-tertiary: rgb(38 47 45);
+  --cy-tertiary-container: rgb(60 70 65);
+  --cy-on-tertiary-container: rgb(219 225 220);
+
+  // 背景（最底层的颜色，不可交互的纯背景区域）、表面（组件和元素的背景色）、阴影、遮罩（一般需要配合 opacity 使用）
+  --cy-background: rgb(14 20 22);
+  --cy-on-background: rgb(222 227 229);
+  --cy-surface: rgb(14 20 22);
+  --cy-on-surface: rgb(222 227 229);
+  --cy-surface-variant: rgb(73 72 74);
+  --cy-on-surface-variant: rgb(201 200 202);
+  --cy-shadow: rgb(0 0 0);
+  --cy-scrim: rgb(0 0 0);
+
+  // 边框
+  --cy-outline: rgb(147 146 149);
+  --cy-outline-variant: rgb(73 72 74);
+
+  // dim 用于创建视觉层次和状态变化的重要颜色变体，一般用于悬停、非活跃状态、加载或禁用状态
+  --cy-surface-dim: rgb(14 20 22);
+  --cy-surface-bright: rgb(52 58 60);
+  // 表面容器层级，从最底层到最高层
+  --cy-surface-container-lowest: rgb(9 15 16);
+  --cy-surface-container-low: rgb(23 29 30);
+  --cy-surface-container: rgb(27 33 34);
+  --cy-surface-container-high: rgb(37 43 44);
+  --cy-surface-container-highest: rgb(48 54 55);
+}
+
+[data-theme='green'] {
+  // 主色
+  // 界面的主色调，通常用于按钮、选中状态、应用栏
+  --cy-primary: rgb(0 104 118);
+  --cy-on-primary: rgb(255 255 255);
+  // 主色调的浅色背景，用于卡片、表单、容器背景
+  --cy-primary-container: rgb(161 239 255);
+  --cy-on-primary-container: rgb(0 78 89);
+
+  // 辅助色
+  --cy-secondary: rgb(74 98 104);
+  --cy-on-secondary: rgb(255 255 255);
+  --cy-secondary-container: rgb(205 231 237);
+  --cy-on-secondary-container: rgb(51 74 80);
+
+  // 点缀色
+  --cy-tertiary: rgb(84 93 126);
+  --cy-on-tertiary: rgb(255 255 255);
+  --cy-tertiary-container: rgb(219 225 255);
+  --cy-on-tertiary-container: rgb(60 70 101);
+
+  // 背景（最底层的颜色，不可交互的纯背景区域）、表面（组件和元素的背景色）、阴影、遮罩（一般需要配合 opacity 使用）
+  --cy-background: rgb(245 250 252);
+  --cy-on-background: rgb(23 29 30);
+  --cy-surface: rgb(245 250 252);
+  --cy-on-surface: rgb(23 29 30);
+  --cy-surface-variant: rgb(219 228 230);
+  --cy-on-surface-variant: rgb(63 72 74);
+  --cy-shadow: rgb(0 0 0);
+  --cy-scrim: rgb(0 0 0);
+
+  // 边框
+  --cy-outline: rgb(111 121 123);
+  --cy-outline-variant: rgb(191 200 202);
+
+  // dim 用于创建视觉层次和状态变化的重要颜色变体，一般用于悬停、非活跃状态、加载或禁用状态
+  --cy-surface-dim: rgb(213 219 220);
+  --cy-surface-bright: rgb(245 250 252);
+  // 表面容器层级，从最底层到最高层
+  --cy-surface-container-lowest: rgb(255 255 255);
+  --cy-surface-container-low: rgb(239 245 246);
+  --cy-surface-container: rgb(233 239 240);
+  --cy-surface-container-high: rgb(227 233 235);
+  --cy-surface-container-highest: rgb(222 227 229);
+}
+
+[data-theme='green-dark'] {
+  // 主色
+  // 界面的主色调，通常用于按钮、选中状态、应用栏
+  --cy-primary: rgb(131 211 227);
+  --cy-on-primary: rgb(0 54 62);
+  // 主色调的浅色背景，用于卡片、表单、容器背景
+  --cy-primary-container: rgb(0 78 89);
+  --cy-on-primary-container: rgb(161 239 255);
+
+  // 辅助色
+  --cy-secondary: rgb(177 203 209);
+  --cy-on-secondary: rgb(28 52 57);
+  --cy-secondary-container: rgb(51 74 80);
+  --cy-on-secondary-container: rgb(205 231 237);
+
+  // 点缀色
+  --cy-tertiary: rgb(188 197 235);
+  --cy-on-tertiary: rgb(38 47 77);
+  --cy-tertiary-container: rgb(60 70 101);
+  --cy-on-tertiary-container: rgb(219 225 255);
+
+  // 背景（最底层的颜色，不可交互的纯背景区域）、表面（组件和元素的背景色）、阴影、遮罩（一般需要配合 opacity 使用）
+  --cy-background: rgb(14 20 22);
+  --cy-on-background: rgb(222 227 229);
+  --cy-surface: rgb(14 20 22);
+  --cy-on-surface: rgb(222 227 229);
+  --cy-surface-variant: rgb(63 72 74);
+  --cy-on-surface-variant: rgb(191 200 202);
+  --cy-shadow: rgb(0 0 0);
+  --cy-scrim: rgb(0 0 0);
+
+  // 边框
+  --cy-outline: rgb(137 146 149);
+  --cy-outline-variant: rgb(63 72 74);
+
+  // dim 用于创建视觉层次和状态变化的重要颜色变体，一般用于悬停、非活跃状态、加载或禁用状态
+  --cy-surface-dim: rgb(14 20 22);
+  --cy-surface-bright: rgb(52 58 60);
+  // 表面容器层级，从最底层到最高层
+  --cy-surface-container-lowest: rgb(9 15 16);
+  --cy-surface-container-low: rgb(23 29 30);
+  --cy-surface-container: rgb(27 33 34);
+  --cy-surface-container-high: rgb(37 43 44);
+  --cy-surface-container-highest: rgb(48 54 55);
+}
+
+
