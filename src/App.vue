@@ -3,17 +3,22 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted} from "vue";
+import {onBeforeUnmount, onMounted} from "vue";
 import {initGlobalState} from "@/utils/global-tools.ts";
+
 
 onMounted(() => {
   initGlobalState()
+
 })
+
+onBeforeUnmount(() => {
+
+  }
+)
 
 </script>
 
 <style lang="scss">
-@import '@/styles/main.scss';
-
 
 </style>

@@ -9,6 +9,7 @@ import {Quasar} from 'quasar'
 import quasarUserOptions from '@/config/quasar-user-options'
 import clickOutside from "@/utils/click-outside"
 
+import '@/styles/main.scss'
 
 const app = createApp(App)
 const pinia = createPinia()

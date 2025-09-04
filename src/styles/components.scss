@@ -1,0 +1,22 @@
+@import "@/styles/base.scss";
+
+
+@mixin cy-component-btn-none-base(
+  $thisWidth: auto,
+  $thisHeight: auto,
+  $thisPadding: 0,
+) {
+  height: $thisHeight;
+  width: $thisWidth;
+  min-height: $thisHeight;
+  min-width: $thisWidth;
+  padding: $thisPadding;
+  border-radius: 4px;
+}
+
+
+.cy-component-btn-none-grow {
+  @include cy-component-btn-none-base(
+    $thisPadding: .4rem,
+  )
+}

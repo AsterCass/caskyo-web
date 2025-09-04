@@ -32,7 +32,7 @@ export function createPersistedStatePlugin() {
 
 export const useGlobalStateStore = defineStore('globalState', {
   state: (): GlobalState => ({
-    curThemeName: 'light',
+    curThemeName: 'green',
     language: 'en',
     isLogin: false,
     userToken: '',
