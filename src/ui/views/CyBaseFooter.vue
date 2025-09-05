@@ -4,23 +4,23 @@
 
     <div style="opacity: .85">
       <div>
-        &copy; 2020-{{ curYear }} astercasc.com {{ $t('main-nav-ipc-pre') }}
-        <a target="_blank" href="https://beian.miit.gov.cn/">{{ $t('main-nav-ipc-center') }}</a>
+        &copy; 2020-{{ curYear }} astercasc.com {{ t('main-nav-ipc-pre') }}
+        <a target="_blank" href="https://beian.miit.gov.cn/">{{ t('main-nav-ipc-center') }}</a>
       </div>
     </div>
 
     <div class="row" style="opacity: .85">
       <div class="q-mr-md">
-        {{ $t('main-nav-contact-me-long') }}
+        {{ t('main-nav-contact-me-long') }}
       </div>
       <div class="q-mx-sm">
-        {{ $t('main-fa-mail') }}: astercass@qq.com
+        {{ t('main-fa-mail') }}: astercass@qq.com
       </div>
       <div class="q-mx-sm">
-        {{ $t('main-fa-qq') }}: 4040191617
+        {{ t('main-fa-qq') }}: 4040191617
       </div>
       <div class="q-mx-sm">
-        {{ $t('main-fa-wechat') }}: AsterCasc
+        {{ t('main-fa-wechat') }}: AsterCasc
       </div>
     </div>
 
@@ -31,9 +31,10 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import {date} from "quasar";
+import {useI18n} from "vue-i18n";
 
 const curYear = ref("2020")
-
+const {t} = useI18n()
 
 onMounted(() => {
   const timeStamp = new Date()

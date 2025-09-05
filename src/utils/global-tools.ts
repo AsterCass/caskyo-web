@@ -1,16 +1,19 @@
 import {useGlobalStateStore} from '@/utils/global-state';
-import i18n from '@/i18n';
 import {Quasar} from 'quasar'
 import zh from 'quasar/lang/zh-CN'
 import en from 'quasar/lang/en-US'
+import {useI18n} from "vue-i18n";
+import type {WritableComputedRef} from "vue";
+import type {Store} from "pinia";
 
 export function initGlobalState() {
   const globalState = useGlobalStateStore();
+  const {locale} = useI18n({useScope: 'global'})
   //theme
   document.documentElement.setAttribute('data-theme', globalState.curThemeName);
   //language
   const lang = globalState.language
-  i18n.global.locale = lang
+  locale.value = lang
   if (lang === 'en') {
     Quasar.lang.set(en)
   } else if (lang === 'zh') {
@@ -31,15 +34,14 @@ export function updateTheme(code: string) {
 }
 
 
-export function updateLanguage(code: string) {
-  const globalState = useGlobalStateStore();
+export function updateLanguage(code: string,
+                               locale: WritableComputedRef<string, string>,
+                               globalState: Store<string, any, {}, any>) {
   if (code === 'en') {
-    i18n.global.locale = 'en'
     Quasar.lang.set(en)
-    globalState.updateLanguage(code);
   } else if (code === 'zh') {
-    i18n.global.locale = 'zh'
     Quasar.lang.set(zh)
-    globalState.updateLanguage(code);
   }
+  locale.value = code
+  globalState.updateLanguage(code);
 }

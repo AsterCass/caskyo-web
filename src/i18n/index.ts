@@ -11,6 +11,7 @@ const messages = {
 }
 
 const i18n = createI18n<[MessageSchema], string>({
+  legacy: false,
   locale: 'en',
   fallbackLocale: 'en',
   messages,

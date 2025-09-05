@@ -5,12 +5,12 @@
       <q-card class="cy-dialog-std" style="max-width: 2000px !important">
         <div class="row justify-center q-mb-md">
           <h4>
-            {{ $t('main_setting_title') }}
+            {{ t("main_setting_title") }}
           </h4>
         </div>
 
         <h6 class="q-my-sm">
-          {{ t('main_setting_theme') }}
+          {{ t("main_setting_theme") }}
         </h6>
         <div>
           <q-radio v-model="globalState.curThemeName" val="light"
@@ -37,17 +37,17 @@
 
 
         <h6 class="q-my-sm">
-          {{ $t('main_setting_lang') }}
+          {{ t('main_setting_lang') }}
         </h6>
         <div>
           <q-radio v-model="globalState.language" val="zh" label="中文"
                    class="cy-component-ratio"
                    checked-icon="task_alt" unchecked-icon="panorama_fish_eye"
-                   @update:model-value="(it) => updateLanguage(it)"/>
+                   @update:model-value="(it) => updateLanguageComposition(it)"/>
           <q-radio v-model="globalState.language" val="en" label="English"
                    class="cy-component-ratio"
                    checked-icon="task_alt" unchecked-icon="panorama_fish_eye"
-                   @update:model-value="(it) => updateLanguage(it)"/>
+                   @update:model-value="(it) => updateLanguageComposition(it)"/>
         </div>
 
 
@@ -60,7 +60,7 @@
 
 import {useGlobalStateStore} from "@/utils/global-state";
 import {useRouter} from "vue-router";
-import {useI18n} from "vue-i18n";
+import {useI18n} from 'vue-i18n'
 import {defineEmits, defineProps, ref, watch} from "vue";
 import {updateLanguage, updateTheme} from "@/utils/global-tools.ts";
 
@@ -79,7 +79,7 @@ watch(() => props.modelValue, () => {
   showUserSpaceSetting.value = props.modelValue
 })
 
-const {t} = useI18n()
+const {t, locale} = useI18n({useScope: 'global'})
 const globalState = useGlobalStateStore();
 const thisRouter = useRouter()
 
@@ -95,6 +95,9 @@ function closeUserSpaceSetting() {
   emit('update:modelValue', false)
 }
 
+function updateLanguageComposition(code: string) {
+  updateLanguage(code, locale, globalState)
+}
 
 </script>
 
