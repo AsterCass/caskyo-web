@@ -20,3 +20,26 @@
     $thisPadding: .4rem,
   )
 }
+
+
+.cy-component-ratio {
+
+  .q-checkbox__inner:not(.q-checkbox__inner--truthy) {
+    color: var(--cy-primary);
+
+  }
+
+  .q-checkbox__inner--truthy {
+    color: var(--cy-primary);
+  }
+
+  .q-radio__inner:not(.q-radio__inner--truthy) {
+    color: var(--cy-primary);
+    opacity: .75;
+  }
+
+  .q-radio__inner--truthy {
+    color: var(--cy-primary);
+  }
+
+}

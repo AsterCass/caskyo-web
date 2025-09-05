@@ -58,6 +58,7 @@
   "main_setting_theme_light": "Light",
   "main_setting_theme_dark": "Dark",
   "main_setting_theme_green": "Green",
+  "main_setting_theme_green_dark": "Green Dark",
 
   "main_login_subtitle_pre": "Don't have an account? You can log in with a third-party account below, or ",
   "main_login_subtitle_center": "register a new account",

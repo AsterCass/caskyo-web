@@ -3,11 +3,11 @@
 :root {
   // 主色
   // 界面的主色调，通常用于按钮、选中状态、应用栏
-  --cy-primary: rgb(104 104 116);
+  --cy-primary: rgb(50 48 52);
   --cy-on-primary: rgb(255 255 255);
   // 主色调的浅色背景，用于卡片、表单、容器背景
   --cy-primary-container: rgb(245 239 253);
-  --cy-on-primary-container: rgb(88 79 88);
+  --cy-on-primary-container: rgb(30 32 28);
 
   // 辅助色
   --cy-secondary: rgb(88 98 103);
@@ -25,6 +25,7 @@
   --cy-background: rgb(245 250 251);
   --cy-on-background: rgb(23 29 30);
   --cy-surface: rgb(245 250 251);
+  --cy-surface-number: 245, 250, 251;
   --cy-on-surface: rgb(23 29 30);
   --cy-surface-variant: rgb(219 228 230);
   --cy-on-surface-variant: rgb(63 72 74);
@@ -89,11 +90,11 @@
 [data-theme='dark'] {
   // 主色
   // 界面的主色调，通常用于按钮、选中状态、应用栏
-  --cy-primary: rgb(220 211 227);
+  --cy-primary: rgb(220 222 218);
   --cy-on-primary: rgb(59 54 62);
   // 主色调的浅色背景，用于卡片、表单、容器背景
   --cy-primary-container: rgb(85 78 89);
-  --cy-on-primary-container: rgb(245 239 255);
+  --cy-on-primary-container: rgb(240 245 238);
 
   // 辅助色
   --cy-secondary: rgb(205 203 209);
@@ -111,6 +112,7 @@
   --cy-background: rgb(14 20 22);
   --cy-on-background: rgb(222 227 229);
   --cy-surface: rgb(14 20 22);
+  --cy-surface-number: 14, 20, 22;
   --cy-on-surface: rgb(222 227 229);
   --cy-surface-variant: rgb(73 72 74);
   --cy-on-surface-variant: rgb(201 200 202);
@@ -157,6 +159,7 @@
   --cy-background: rgb(245 250 252);
   --cy-on-background: rgb(23 29 30);
   --cy-surface: rgb(245 250 252);
+  --cy-surface-number: 245, 250, 252;
   --cy-on-surface: rgb(23 29 30);
   --cy-surface-variant: rgb(219 228 230);
   --cy-on-surface-variant: rgb(63 72 74);
@@ -203,6 +206,7 @@
   --cy-background: rgb(14 20 22);
   --cy-on-background: rgb(222 227 229);
   --cy-surface: rgb(14 20 22);
+  --cy-surface-number: 14, 20, 22;
   --cy-on-surface: rgb(222 227 229);
   --cy-surface-variant: rgb(63 72 74);
   --cy-on-surface-variant: rgb(191 200 202);
@@ -234,52 +238,49 @@ body, aside {
   margin: 0;
   color: var(--cy-on-background);
   background-color: var(--cy-background);
+  font-size: .875rem;
 
   ::selection {
     background-color: var(--cy-surface-dim);
   }
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  line-height: 1.2;
+}
+
 h1 {
   font-weight: 600;
   font-size: 3rem;
-  margin: 15px 0;
 }
 
 h2 {
   font-weight: 600;
   font-size: 1.8rem;
-  margin: 10px 0;
-  line-height: 1.5;
 }
 
 h3 {
   font-weight: 600;
   font-size: 1.25rem;
-  margin: 15px 0;
-  letter-spacing: .6px;
-  line-height: 1.5;
 }
 
 h4 {
   font-weight: 500;
-  font-size: 1.4rem;
-  margin: 5px 0;
+  font-size: 1.2rem;
 }
 
 h5 {
   font-weight: 500;
   font-size: 1.1rem;
-  margin: 5px 0;
 }
 
 h6 {
   font-size: .95rem;
-  margin: 0;
 }
 
 p {
-  margin: 0 0 .5rem 0;
+  font-size: .875rem;
 }
 
 

@@ -57,7 +57,8 @@
   "main_setting_cancel": "取消",
   "main_setting_theme_light": "白天",
   "main_setting_theme_dark": "夜间",
-  "main_setting_theme_green": "春季",
+  "main_setting_theme_green": "浅葱",
+  "main_setting_theme_green_dark": "郁阴",
 
   "main_login_subtitle_pre": "没有账号？可以尝试使用下方第三方账号登录，或者",
   "main_login_subtitle_center": "注册您的账号",

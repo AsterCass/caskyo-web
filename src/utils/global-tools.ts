@@ -22,3 +22,24 @@ export function initGlobalState() {
   }
   //more
 }
+
+
+export function updateTheme(code: string) {
+  const globalState = useGlobalStateStore();
+  document.documentElement.setAttribute('data-theme', code);
+  globalState.updateTheme(code);
+}
+
+
+export function updateLanguage(code: string) {
+  const globalState = useGlobalStateStore();
+  if (code === 'en') {
+    i18n.global.locale = 'en'
+    Quasar.lang.set(en)
+    globalState.updateLanguage(code);
+  } else if (code === 'zh') {
+    i18n.global.locale = 'zh'
+    Quasar.lang.set(zh)
+    globalState.updateLanguage(code);
+  }
+}
