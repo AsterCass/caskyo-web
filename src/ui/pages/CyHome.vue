@@ -2,15 +2,49 @@
   <q-layout view="hhh lpr fff" class="cy-full-screen cy-home-bg column">
     <cy-base-header/>
 
-    <div class="col">
-      <div style="height: 20rem; width: 20rem; background-color: red">
+    <div class="col" style="padding-top: 5rem">
 
+      <cy-main-left-navigation/>
+
+
+      <div class="q-ma-md">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+        adipisci,
+        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
+        delectus commodi
+        perferendis voluptate?
       </div>
 
-      <cask-down-drawer/>
+      <div class="q-ma-md">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+        adipisci,
+        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
+        delectus commodi
+        perferendis voluptate?
+      </div>
 
-      <div style="height: 10rem; width: 30rem; background-color: green">
+      <div class="q-ma-md">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+        adipisci,
+        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
+        delectus commodi
+        perferendis voluptate?
+      </div>
 
+      <div class="q-ma-md">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+        adipisci,
+        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
+        delectus commodi
+        perferendis voluptate?
+      </div>
+
+      <div class="q-ma-md">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
+        adipisci,
+        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
+        delectus commodi
+        perferendis voluptate?
       </div>
 
 
@@ -24,10 +58,7 @@
 <script setup lang="ts">
 import CyBaseHeader from "@/ui/views/CyBaseHeader.vue";
 import CyBaseFooter from "@/ui/views/CyBaseFooter.vue";
-import CaskDownDrawer from "@/ui/components/CaskDownDrawer.vue";
-
-
-
+import CyMainLeftNavigation from "@/ui/views/CyMainLeftNavigation.vue";
 </script>
 
 <style scoped lang="scss">

@@ -5,7 +5,7 @@
 
 
       <q-btn no-caps unelevated class="cy-component-btn-none-grow" size="12px"
-             icon="fa-solid fa-bars"/>
+             icon="fa-solid fa-bars" @click="emitter.emit('toggleNavigationVisibleEvent')"/>
 
       <h5 style="color: var(--cy-on-primary-container)">
         Caskyo
@@ -30,6 +30,7 @@ import {defineProps, ref} from "vue";
 import {useGlobalStateStore} from "@/utils/global-state";
 import {useRouter} from "vue-router";
 import CyBaseSetting from "@/ui/views/CyBaseSetting.vue";
+import {emitter} from "@/utils/bus.ts";
 
 defineProps({
   alwaysShow: {
