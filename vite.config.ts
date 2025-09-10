@@ -3,7 +3,6 @@ import {fileURLToPath, URL} from 'node:url'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueDevTools from 'vite-plugin-vue-devtools'
 import {quasar, transformAssetUrls} from '@quasar/vite-plugin'
 import {compression} from 'vite-plugin-compression2'
 
@@ -20,7 +19,7 @@ export default defineConfig({
       )
     }),
     vueJsx(),
-    vueDevTools(),
+    // vueDevTools(), //页面下方的开发工具 import vueDevTools from 'vite-plugin-vue-devtools'
     compression(),
   ],
   resolve: {

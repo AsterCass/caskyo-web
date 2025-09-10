@@ -1,14 +1,14 @@
 import {defineStore} from 'pinia'
+import type {GeneralUser} from "@/types/user"
+import type {MainMenu} from "@/types/menu"
 
 interface GlobalState {
   curThemeName: string
   language: string
   isLogin: boolean
-  userToken: string
-  userData: null | {
-    userId: string
-    avatar: string
-  }
+  userToken: null | string
+  userData: null | GeneralUser
+  mainMenu: MainMenu[]
   allowBrowserNotification: boolean
 }
 
@@ -35,8 +35,9 @@ export const useGlobalStateStore = defineStore('globalState', {
     curThemeName: 'green',
     language: 'en',
     isLogin: false,
-    userToken: '',
+    userToken: null,
     userData: null,
+    mainMenu: [],
     allowBrowserNotification: true,
   }),
   actions: {
@@ -56,8 +57,11 @@ export const useGlobalStateStore = defineStore('globalState', {
         this.userData = null
       }
     },
-    updateUserData(data: any) {
+    updateUserData(data: null | GeneralUser) {
       this.userData = data
+    },
+    updateMainMenu(data: MainMenu[]) {
+      this.mainMenu = data
     },
     updateAllowBrowserNotification(isAllowBrowser: boolean) {
       this.allowBrowserNotification = isAllowBrowser

@@ -5,6 +5,8 @@ import en from 'quasar/lang/en-US'
 import {useI18n} from "vue-i18n";
 import type {WritableComputedRef} from "vue";
 import type {Store} from "pinia";
+import {GeneralUserSchema} from "@/types/user.ts";
+import {mapToMainMenuList} from "@/types/menu.ts";
 
 export function initGlobalState() {
   const globalState = useGlobalStateStore();
@@ -33,6 +35,19 @@ export function updateTheme(code: string) {
   globalState.updateTheme(code);
 }
 
+export function updateUserData(data: any) {
+  const globalState = useGlobalStateStore();
+  if (data) {
+    globalState.updateUserData(GeneralUserSchema.parse(data));
+  } else {
+    globalState.updateUserData(null);
+  }
+}
+
+export function updateMainMenu(data: any[]) {
+  const globalState = useGlobalStateStore();
+  globalState.updateMainMenu(mapToMainMenuList(data));
+}
 
 export function updateLanguage(code: string,
                                locale: WritableComputedRef<string, string>,

@@ -5,8 +5,9 @@
   // 界面的主色调，通常用于按钮、选中状态、应用栏
   --cy-primary: rgb(50 48 52);
   --cy-on-primary: rgb(255 255 255);
+  --cy-on-primary-number: 255, 255, 255;
   // 主色调的浅色背景，用于卡片、表单、容器背景
-  --cy-primary-container: rgb(245 239 253);
+  --cy-primary-container: rgb(245 245 245);
   --cy-on-primary-container: rgb(30 32 28);
 
   // 辅助色
@@ -92,8 +93,9 @@
   // 界面的主色调，通常用于按钮、选中状态、应用栏
   --cy-primary: rgb(220 222 218);
   --cy-on-primary: rgb(59 54 62);
+  --cy-on-primary-number: 59, 54, 62;
   // 主色调的浅色背景，用于卡片、表单、容器背景
-  --cy-primary-container: rgb(85 78 89);
+  --cy-primary-container: rgb(85 85 85);
   --cy-on-primary-container: rgb(240 245 238);
 
   // 辅助色
@@ -139,6 +141,7 @@
   // 界面的主色调，通常用于按钮、选中状态、应用栏
   --cy-primary: rgb(0 104 118);
   --cy-on-primary: rgb(255 255 255);
+  --cy-on-primary-number: 255, 255, 255;
   // 主色调的浅色背景，用于卡片、表单、容器背景
   --cy-primary-container: rgb(161 239 255);
   --cy-on-primary-container: rgb(0 78 89);
@@ -186,6 +189,7 @@
   // 界面的主色调，通常用于按钮、选中状态、应用栏
   --cy-primary: rgb(131 211 227);
   --cy-on-primary: rgb(0 54 62);
+  --cy-on-primary-number: 0, 54, 62;
   // 主色调的浅色背景，用于卡片、表单、容器背景
   --cy-primary-container: rgb(0 78 89);
   --cy-on-primary-container: rgb(161 239 255);
