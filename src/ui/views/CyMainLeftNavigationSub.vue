@@ -1,20 +1,19 @@
 <template>
-  <div class="cask-down-drawer-sub-main"
-       :style="{ '--cy-main-navigation-index': props.index,
-       '--cy-main-navigation-level': props.level}">
+  <div class="cask-down-drawer-sub-main" :style="{'--cy-main-navigation-level': props.level}">
 
     <div class="cask-down-drawer-sub-content row" :class="pointId && pointId === props.data.id ?
           'cask-down-drawer-sub-content-show' :
-          'cask-down-drawer-sub-content-hide'"
-    >
+          'cask-down-drawer-sub-content-hide'">
 
       <div class="col-12" v-for="(thisMenu, index) in props.data.children" :key="index">
 
+        <Teleport defer to="#cyMainLeftNaviMain">
         <cy-main-left-navigation-sub :index="index"
                                      :data="thisMenu"
                                      :level="thisMenu.level + 1"
                                      :pointId="currentOpenId"
         />
+        </Teleport>
 
         <div class="cask-down-drawer-sub-element row justify-center items-center"
              @click="selectChild(thisMenu)">
@@ -80,13 +79,11 @@ function selectChild(data: MainMenu) {
     width: var(--cy-main-navigation-element-width);
     gap: var(--cy-main-navigation-gap);
     margin-left: calc(
-      var(--cy-main-navigation-element-width)
+      var(--cy-main-navigation-level)
+      * (var(--cy-main-navigation-element-width) + var(--cy-main-navigation-gap-horizontal))
       + var(--cy-main-navigation-gap-horizontal)
     );
-    margin-top: calc(-1 * var(--cy-main-navigation-index)
-    * (var(--cy-main-navigation-gap) + var(--cy-main-navigation-element-height))
-    + var(--cy-main-navigation-level) * var(--cy-main-navigation-step)
-    );
+    margin-top: calc(var(--cy-main-navigation-level) * var(--cy-main-navigation-step));
 
     .cask-down-drawer-sub-element {
       height: var(--cy-main-navigation-element-height);

@@ -1,6 +1,6 @@
 <template>
 
-  <div class="cask-down-drawer-main">
+  <div id="cyMainLeftNaviMain" class="cask-down-drawer-main">
     <div class="cask-down-drawer-content row"
          :class="navigationVisible ?
          'cask-down-drawer-content-show' :
@@ -10,11 +10,14 @@
 
       <div class="col-12" v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
 
-        <cy-main-left-navigation-sub :index="index"
-                                     :data="thisMenu"
-                                     :level="thisMenu.level + 1"
-                                     :pointId="currentOpenId"
-        />
+        <Teleport defer to="#cyMainLeftNaviMain">
+          <cy-main-left-navigation-sub :index="index"
+                                       :data="thisMenu"
+                                       :level="thisMenu.level + 1"
+                                       :pointId="currentOpenId"
+          />
+        </Teleport>
+
 
         <div class="cask-down-drawer-element row justify-center items-center"
              @click="selectChild(thisMenu)">
@@ -67,14 +70,16 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 
 .cask-down-drawer-main {
-  position: relative;
-
+  position: fixed;
+  height: 100%;
+  width: 100%;
 
   .cask-down-drawer-content {
     position: absolute;
     background-color: transparent;
-    transition: gap 1s ease, opacity 1s ease, height 1s ease, transform 1s ease;
+    transition: gap 1s ease, opacity 1s ease, max-height 1s ease, transform 1s ease;
     width: var(--cy-main-navigation-element-width);
+    max-height: 55%;
     margin-left: var(--cy-main-navigation-gap-horizontal);
 
 
@@ -100,14 +105,12 @@ onBeforeUnmount(() => {
 
   .cask-down-drawer-content-show {
     transform: translateY(0);
-    max-height: 85%;
     gap: var(--cy-main-navigation-gap);
     opacity: 1;
   }
 
   .cask-down-drawer-content-hide {
     transform: translateY(-10rem);
-    max-height: 0;
     gap: 0;
     opacity: 0;
   }
