@@ -1,14 +1,13 @@
 <template>
 
   <div id="cyMainLeftNaviMain" class="cask-down-drawer-main">
-    <div class="cask-down-drawer-content row"
-         :class="navigationVisible ?
-         'cask-down-drawer-content-show' :
-         'cask-down-drawer-content-hide'">
+    <q-scroll-area class="cask-down-drawer-content"
+                   :style="navigationVisible ? 'height: 55%;' : 'height: 0'"
+                   :thumb-style="globalState.curThemeName.includes('dark') ?
+                         { background: 'white', width: '6px' } :
+                          { background: 'black', width: '6px' }">
 
-
-
-      <div class="col-12" v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
+      <div v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
 
         <Teleport defer to="#cyMainLeftNaviMain">
           <cy-main-left-navigation-sub :index="index"
@@ -20,6 +19,10 @@
 
 
         <div class="cask-down-drawer-element row justify-center items-center"
+             :class="navigationVisible?
+             'cask-down-drawer-element-show' : 'cask-down-drawer-element-hide'"
+             :style="index === globalState.mainMenu.length - 1
+             ? 'margin-bottom: 0 !important;' : ''"
              @click="selectChild(thisMenu)">
           <h6>
             {{ thisMenu.name }}
@@ -27,7 +30,7 @@
         </div>
       </div>
 
-    </div>
+    </q-scroll-area>
   </div>
 
 
@@ -71,20 +74,19 @@ onBeforeUnmount(() => {
 
 .cask-down-drawer-main {
   position: fixed;
+  pointer-events: none;
   height: 100%;
   width: 100%;
 
   .cask-down-drawer-content {
+    pointer-events: auto;
     position: absolute;
     background-color: transparent;
-    transition: gap 1s ease, opacity 1s ease, max-height 1s ease, transform 1s ease;
+    transition: height 1s ease;
     width: var(--cy-main-navigation-element-width);
-    max-height: 55%;
     margin-left: var(--cy-main-navigation-gap-horizontal);
 
-
     .cask-down-drawer-element {
-      height: var(--cy-main-navigation-element-height);
       border-radius: 6px;
       opacity: .95;
       background-color: var(--cy-primary-container);
@@ -92,7 +94,8 @@ onBeforeUnmount(() => {
       box-shadow: inset 0 0 2px 1px var(--cy-surface-container-lowest);
       cursor: pointer;
       user-select: none;
-      transition: background-color 0.5s ease, color 0.5s ease;
+      transition: background-color 0.5s ease, color 0.5s ease,
+      height 1s ease, opacity 1s ease, transform 1s ease, margin-bottom 1s ease;
 
       &:hover {
         background-color: var(--cy-primary);
@@ -100,21 +103,21 @@ onBeforeUnmount(() => {
       }
     }
 
+    .cask-down-drawer-element-show {
+      transform: translateY(0);
+      height: var(--cy-main-navigation-element-height);
+      opacity: 1;
+      margin-bottom: var(--cy-main-navigation-gap);
+    }
+
+    .cask-down-drawer-element-hide {
+      transform: translateY(-10rem);
+      height: 0;
+      opacity: 0;
+      margin-bottom: 0;
+    }
 
   }
-
-  .cask-down-drawer-content-show {
-    transform: translateY(0);
-    gap: var(--cy-main-navigation-gap);
-    opacity: 1;
-  }
-
-  .cask-down-drawer-content-hide {
-    transform: translateY(-10rem);
-    gap: 0;
-    opacity: 0;
-  }
-
 }
 
 </style>
