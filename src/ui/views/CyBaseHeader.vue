@@ -112,6 +112,26 @@ function updateUserProfile() {
           desc: "",
           path: "/888",
           icon: "fa-user",
+          children: [
+            {
+              id: "ccc",
+              code: "ccc",
+              level: 2,
+              name: "条目c",
+              desc: "",
+              path: "/ccc",
+              icon: "fa-user",
+            },
+            {
+              id: "ddd",
+              code: "ddd",
+              level: 2,
+              name: "条目d",
+              desc: "",
+              path: "/ddd",
+              icon: "fa-user",
+            },
+          ]
         },
       ]
     },
@@ -131,6 +151,35 @@ function updateUserProfile() {
       name: "条目7",
       desc: "",
       path: "/777",
+      icon: "fa-user",
+      children: [
+        {
+          id: "999",
+          code: "999",
+          level: 1,
+          name: "条目9",
+          desc: "",
+          path: "/999",
+          icon: "fa-user",
+        },
+      ]
+    },
+    {
+      id: "aaa",
+      code: "aaa",
+      level: 0,
+      name: "条目a",
+      desc: "",
+      path: "/aaa",
+      icon: "fa-user",
+    },
+    {
+      id: "bbb",
+      code: "bbb",
+      level: 0,
+      name: "条目b",
+      desc: "",
+      path: "/bbb",
       icon: "fa-user",
     },
   ]

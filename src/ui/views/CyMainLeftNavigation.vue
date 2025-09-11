@@ -1,15 +1,21 @@
 <template>
+
   <div class="cask-down-drawer-main">
-
-
-    <div class="cask-down-drawer-content row justify-start"
+    <div class="cask-down-drawer-content row"
          :class="navigationVisible ?
          'cask-down-drawer-content-show' :
          'cask-down-drawer-content-hide'">
 
-      <cy-main-left-navigation-sub :data="currentOpenChild"/>
+
 
       <div class="col-12" v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
+
+        <cy-main-left-navigation-sub :index="index"
+                                     :data="thisMenu"
+                                     :level="thisMenu.level + 1"
+                                     :pointId="currentOpenId"
+        />
+
         <div class="cask-down-drawer-element row justify-center items-center"
              @click="selectChild(thisMenu)">
           <h6>
@@ -19,8 +25,6 @@
       </div>
 
     </div>
-
-
   </div>
 
 
@@ -35,14 +39,18 @@ import type {MainMenu} from "@/types/menu.ts";
 
 const globalState = useGlobalStateStore()
 const navigationVisible = ref(false)
-const currentOpenChild = ref<MainMenu[]>([])
+const currentOpenId = ref<string>("")
 
 function toggleNavigationVisible() {
   navigationVisible.value = !navigationVisible.value
 }
 
 function selectChild(data: MainMenu) {
-  currentOpenChild.value = data.children;
+  if (currentOpenId.value == data.id) {
+    currentOpenId.value = ""
+    return
+  }
+  currentOpenId.value = data.id
 }
 
 
@@ -63,15 +71,15 @@ onBeforeUnmount(() => {
 
 
   .cask-down-drawer-content {
-    position: fixed;
+    position: absolute;
     background-color: transparent;
     transition: gap 1s ease, opacity 1s ease, height 1s ease, transform 1s ease;
-    width: 12rem;
-    margin-left: 2.5rem;
+    width: var(--cy-main-navigation-element-width);
+    margin-left: var(--cy-main-navigation-gap-horizontal);
 
 
     .cask-down-drawer-element {
-      height: 3rem;
+      height: var(--cy-main-navigation-element-height);
       border-radius: 6px;
       opacity: .95;
       background-color: var(--cy-primary-container);
@@ -91,9 +99,9 @@ onBeforeUnmount(() => {
   }
 
   .cask-down-drawer-content-show {
-    transform: translateY(-1rem);
+    transform: translateY(0);
     max-height: 85%;
-    gap: 2.5rem;
+    gap: var(--cy-main-navigation-gap);
     opacity: 1;
   }
 

@@ -86,6 +86,13 @@
   --cy-on-positive: rgb(255 255 255);
   --cy-positive-container: rgb(220 255 220);
   --cy-on-positive-container: rgb(56, 142, 60);
+
+  // 主导航栏布局
+  --cy-main-navigation-gap: 2.5rem;
+  --cy-main-navigation-element-height: 3rem;
+  --cy-main-navigation-element-width: 12rem;
+  --cy-main-navigation-gap-horizontal: 2.5rem;
+  --cy-main-navigation-step: 1rem;
 }
 
 [data-theme='dark'] {
