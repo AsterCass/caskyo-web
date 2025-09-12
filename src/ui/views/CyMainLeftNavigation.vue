@@ -2,7 +2,8 @@
 
   <div id="cyMainLeftNaviMain" class="cask-down-drawer-main">
     <q-scroll-area class="cask-down-drawer-content"
-                   :style="navigationVisible ? 'height: 55%;' : 'height: 0'"
+                   :style="navigationVisible ?
+                   'height: var(--cy-main-navigation-height);' : 'height: 0'"
                    :thumb-style="globalState.curThemeName.includes('dark') ?
                          { background: 'white', width: '6px' } :
                           { background: 'black', width: '6px' }">
@@ -54,6 +55,9 @@ function toggleNavigationVisible() {
 function selectChild(data: MainMenu) {
   if (currentOpenId.value == data.id) {
     currentOpenId.value = ""
+    return
+  }
+  if (data.children.length === 0) {
     return
   }
   currentOpenId.value = data.id
