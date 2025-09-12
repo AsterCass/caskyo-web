@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
       }
 
       .cask-down-drawer-element-selected {
-        transition: opacity 0.25s ease;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
         height: 72%;
         width: 5px;
         border-radius: 2px;
