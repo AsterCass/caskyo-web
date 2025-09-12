@@ -10,7 +10,7 @@
 
       <div v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
 
-        <Teleport defer to="#cyMainLeftNaviMain">
+        <Teleport v-if="thisMenu.children.length > 0" defer to="#cyMainLeftNaviMain">
           <cy-main-left-navigation-sub :index="index"
                                        :data="thisMenu"
                                        :level="thisMenu.level + 1"
@@ -49,18 +49,26 @@ const navigationVisible = ref(false)
 const currentOpenId = ref<string>("")
 
 function toggleNavigationVisible() {
+  emitter.emit("closeNavigationChildrenEvent",
+    {saveLevel: 0, exceptParentId: ""});
+  currentOpenId.value = ""
   navigationVisible.value = !navigationVisible.value
 }
 
 function selectChild(data: MainMenu) {
   if (currentOpenId.value == data.id) {
+    emitter.emit("closeNavigationChildrenEvent",
+      {saveLevel: 0, exceptParentId: ""});
     currentOpenId.value = ""
     return
   }
-  if (data.children.length === 0) {
-    return
+  emitter.emit("closeNavigationChildrenEvent",
+    {saveLevel: 0, exceptParentId: data.id});
+  if (data.children.length !== 0) {
+    currentOpenId.value = data.id
+  } else {
+    currentOpenId.value = ""
   }
-  currentOpenId.value = data.id
 }
 
 

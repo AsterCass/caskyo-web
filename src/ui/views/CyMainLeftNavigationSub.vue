@@ -9,7 +9,7 @@
 
     <div v-for="(thisMenu, index) in props.data.children" :key="index">
 
-      <Teleport defer to="#cyMainLeftNaviMain">
+      <Teleport v-if="thisMenu.children.length > 0" defer to="#cyMainLeftNaviMain">
         <cy-main-left-navigation-sub :index="index"
                                      :data="thisMenu"
                                      :level="thisMenu.level + 1"
@@ -37,7 +37,8 @@
 <script setup lang="ts">
 import {useGlobalStateStore} from "@/utils/global-state.ts";
 import type {MainMenu} from "@/types/menu.ts";
-import {ref} from "vue";
+import {onBeforeUnmount, onMounted, ref} from "vue";
+import {type CloseNavigationChildrenPayload, emitter} from "@/utils/bus.ts";
 
 const globalState = useGlobalStateStore()
 
@@ -55,17 +56,38 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const currentOpenId = ref<string>("")
 
+function closeNavigationChildren({saveLevel, exceptParentId}: CloseNavigationChildrenPayload) {
+  if (props.data.id === exceptParentId || props.level <= saveLevel) {
+    return
+  }
+  currentOpenId.value = ""
+}
+
 
 function selectChild(data: MainMenu) {
   if (currentOpenId.value == data.id) {
+    emitter.emit("closeNavigationChildrenEvent",
+      {saveLevel: props.level, exceptParentId: ""});
     currentOpenId.value = ""
     return
   }
-  if (data.children.length === 0) {
-    return
+  emitter.emit("closeNavigationChildrenEvent",
+    {saveLevel: props.level, exceptParentId: data.id});
+  if (data.children.length !== 0) {
+    currentOpenId.value = data.id
+  } else {
+    currentOpenId.value = ""
   }
-  currentOpenId.value = data.id
 }
+
+
+onMounted(() => {
+  emitter.on("closeNavigationChildrenEvent", closeNavigationChildren)
+})
+
+onBeforeUnmount(() => {
+  emitter.off("closeNavigationChildrenEvent", closeNavigationChildren)
+})
 
 
 </script>
