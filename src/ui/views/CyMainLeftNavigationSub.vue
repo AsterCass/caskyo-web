@@ -7,25 +7,37 @@
                          { background: 'white', width: '6px' } :
                           { background: 'black', width: '6px' }">
 
-    <div v-for="(thisMenu, index) in props.data.children" :key="index">
+    <div>
+      <div v-for="(thisMenu, index) in props.data.children" :key="index">
 
-      <Teleport v-if="thisMenu.children.length > 0" defer to="#cyMainLeftNaviMain">
-        <cy-main-left-navigation-sub :index="index"
-                                     :data="thisMenu"
-                                     :level="thisMenu.level + 1"
-                                     :pointId="currentOpenId"
-        />
-      </Teleport>
+        <Teleport v-if="thisMenu.children.length > 0" defer to="#cyMainLeftNaviMain">
+          <cy-main-left-navigation-sub :index="index"
+                                       :data="thisMenu"
+                                       :level="thisMenu.level + 1"
+                                       :pointId="currentOpenId"
+          />
+        </Teleport>
 
-      <div class="cask-down-drawer-sub-element row justify-center items-center"
-           :style="index === props.data.children.length - 1
+        <div class="cask-down-drawer-sub-element row justify-between items-center"
+             :style="index === props.data.children.length - 1
              ? 'margin-bottom: 0 !important;' : ''"
-           @click="selectChild(thisMenu)">
-        <h6>
-          {{ thisMenu.name }}
-        </h6>
-      </div>
+             @click="selectChild(thisMenu)">
 
+          <div class="cask-down-drawer-sub-element-selected q-ml-sm"
+               :style="currentOpenId === thisMenu.id ? '': 'opacity: 0'"/>
+
+          <h6>
+            {{ thisMenu.name }}
+          </h6>
+
+          <div class="row items-center q-mr-sm"
+               :style="thisMenu.children.length > 0 ? '': 'opacity: 0'">
+            <q-icon name="fa-solid fa-angle-right" size="1rem"/>
+          </div>
+
+        </div>
+
+      </div>
     </div>
 
 
@@ -73,11 +85,7 @@ function selectChild(data: MainMenu) {
   }
   emitter.emit("closeNavigationChildrenEvent",
     {saveLevel: props.level, exceptParentId: data.id});
-  if (data.children.length !== 0) {
-    currentOpenId.value = data.id
-  } else {
-    currentOpenId.value = ""
-  }
+  currentOpenId.value = data.id
 }
 
 
@@ -123,7 +131,23 @@ onBeforeUnmount(() => {
     &:hover {
       background-color: var(--cy-primary);
       color: var(--cy-on-primary);
+
+      .cask-down-drawer-sub-element-selected {
+        background-color: var(--cy-on-primary);
+      }
     }
+
+
+    .cask-down-drawer-sub-element-selected {
+      transition: opacity 0.5s ease;
+      height: 72%;
+      width: 5px;
+      border-radius: 2px;
+      background-color: var(--cy-primary);
+      opacity: 0.9;
+    }
+
+
   }
 }
 

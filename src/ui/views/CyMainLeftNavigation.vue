@@ -8,26 +8,37 @@
                          { background: 'white', width: '6px' } :
                           { background: 'black', width: '6px' }">
 
-      <div v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
+      <div>
+        <div v-for="(thisMenu, index) in globalState.mainMenu" :key="index">
 
-        <Teleport v-if="thisMenu.children.length > 0" defer to="#cyMainLeftNaviMain">
-          <cy-main-left-navigation-sub :index="index"
-                                       :data="thisMenu"
-                                       :level="thisMenu.level + 1"
-                                       :pointId="currentOpenId"
-          />
-        </Teleport>
+          <Teleport v-if="thisMenu.children.length > 0" defer to="#cyMainLeftNaviMain">
+            <cy-main-left-navigation-sub :index="index"
+                                         :data="thisMenu"
+                                         :level="thisMenu.level + 1"
+                                         :pointId="currentOpenId"
+            />
+          </Teleport>
 
 
-        <div class="cask-down-drawer-element row justify-center items-center"
-             :class="navigationVisible?
+          <div class="cask-down-drawer-element row justify-between items-center"
+               :class="navigationVisible?
              'cask-down-drawer-element-show' : 'cask-down-drawer-element-hide'"
-             :style="index === globalState.mainMenu.length - 1
+               :style="index === globalState.mainMenu.length - 1
              ? 'margin-bottom: 0 !important;' : ''"
-             @click="selectChild(thisMenu)">
-          <h6>
-            {{ thisMenu.name }}
-          </h6>
+               @click="selectChild(thisMenu)">
+
+            <div class="cask-down-drawer-element-selected q-ml-sm"
+                 :style="currentOpenId === thisMenu.id ? '': 'opacity: 0'"/>
+
+            <h6>
+              {{ thisMenu.name }}
+            </h6>
+
+            <div class="row items-center q-mr-sm"
+                 :style="thisMenu.children.length > 0 ? '': 'opacity: 0'">
+              <q-icon name="fa-solid fa-angle-right" size="1rem"/>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -64,11 +75,7 @@ function selectChild(data: MainMenu) {
   }
   emitter.emit("closeNavigationChildrenEvent",
     {saveLevel: 0, exceptParentId: data.id});
-  if (data.children.length !== 0) {
-    currentOpenId.value = data.id
-  } else {
-    currentOpenId.value = ""
-  }
+  currentOpenId.value = data.id
 }
 
 
@@ -112,7 +119,21 @@ onBeforeUnmount(() => {
       &:hover {
         background-color: var(--cy-primary);
         color: var(--cy-on-primary);
+
+        .cask-down-drawer-element-selected {
+          background-color: var(--cy-on-primary);
+        }
       }
+
+      .cask-down-drawer-element-selected {
+        transition: opacity 0.25s ease;
+        height: 72%;
+        width: 5px;
+        border-radius: 2px;
+        background-color: var(--cy-primary);
+        opacity: 0.9;
+      }
+
     }
 
     .cask-down-drawer-element-show {

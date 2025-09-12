@@ -2,52 +2,29 @@
   <q-layout view="hhh lpr fff" class="cy-full-screen cy-home-bg column">
     <cy-base-header/>
 
-    <div class="col" style="padding-top: 5rem">
+    <div class="col row" style="padding-top: 5rem">
+
+
+      <div class="cy-home-main-left column justify-between q-pa-md">
+
+        <div class="column items-center">
+          <q-avatar size="100px">
+            <q-img src="https://picsum.photos/200/200"/>
+          </q-avatar>
+        </div>
+
+
+        <div>
+          标记常用菜单区域
+        </div>
+      </div>
+
+      <div class="col">
+
+      </div>
+
 
       <cy-main-left-navigation/>
-
-
-      <div class="q-ma-md">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-        adipisci,
-        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
-        delectus commodi
-        perferendis voluptate?
-      </div>
-
-      <div class="q-ma-md">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-        adipisci,
-        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
-        delectus commodi
-        perferendis voluptate?
-      </div>
-
-      <div class="q-ma-md">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-        adipisci,
-        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
-        delectus commodi
-        perferendis voluptate?
-      </div>
-
-      <div class="q-ma-md">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-        adipisci,
-        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
-        delectus commodi
-        perferendis voluptate?
-      </div>
-
-      <div class="q-ma-md">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a
-        adipisci,
-        dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum
-        delectus commodi
-        perferendis voluptate?
-      </div>
-
-
     </div>
 
     <cy-base-footer/>
@@ -66,6 +43,10 @@ import CyMainLeftNavigation from "@/ui/views/CyMainLeftNavigation.vue";
 
 .cy-home-bg {
   background-image: url('/img/bg-leaf.png');
+}
+
+.cy-home-main-left {
+  width: 15%;
 }
 
 
