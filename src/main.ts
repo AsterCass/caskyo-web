@@ -7,7 +7,6 @@ import router from './router'
 import i18n from '@/i18n';
 import {Quasar} from 'quasar'
 import quasarUserOptions from '@/config/quasar-user-options'
-import clickOutside from "@/utils/click-outside"
 
 import '@/styles/main.scss'
 
@@ -21,7 +20,5 @@ app.use(router)
 app.use(Quasar, {
   plugins: quasarUserOptions,
 })
-
-app.directive('click-outside', clickOutside);
 
 app.mount('#app')
