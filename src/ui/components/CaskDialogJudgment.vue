@@ -60,7 +60,7 @@ const props = defineProps({
   },
 })
 
-let showDialogJudgment = ref(props.modelValue);
+const showDialogJudgment = ref(props.modelValue);
 watch(() => props.modelValue, () => {
   if (props.modelValue) {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
