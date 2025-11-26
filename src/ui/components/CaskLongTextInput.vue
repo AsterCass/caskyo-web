@@ -111,7 +111,7 @@
               </div>
               <div class="q-ma-xs cask-cursor-pointer column justify-center items-center"
                    @click="showEmojiUpload = true"
-                   style="height: 5rem; width: 5rem; border-radius: 8px; border: 2px dashed rgb(var(--text-color));">
+                   style="height: 5rem; width: 5rem; border-radius: 8px; border: 2px dashed var(--cy-on-background);">
                 <q-icon class="q-my-xs" size="1rem" name="fa-solid fa-upload" style="opacity: .95;"/>
                 <div class="q-my-xs" style="opacity: .95; font-size: .72rem">
                   {{ $t('main_long_text_upload_emoji') }}
@@ -385,7 +385,7 @@ const uploadEmojiCallback = async (isSend, data) => {
     return
   }
   //build
-  let formData = new FormData();
+  const formData = new FormData();
   formData.append('file', data, data.name)
   const res = await uploadUserFile({fileType: 1}, formData)
   if (!res || !res.data || !res.data.data) {

@@ -49,8 +49,8 @@ const pickDatetime = ref(props.modelValue)
 //   pickTime.value = props.modelValue
 // })
 
-let dateUiInput = ref("")
-let timeUiInput = ref("")
+const dateUiInput = ref("")
+const timeUiInput = ref("")
 
 function updateUiInput() {
   if (pickDatetime.value && pickDatetime.value.length >= 16) {

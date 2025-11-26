@@ -48,7 +48,7 @@ const pickTime = ref(props.modelValue)
 //   pickTime.value = props.modelValue
 // })
 
-let timeUiInput = ref("")
+const timeUiInput = ref("")
 
 function updateUiInput() {
   if (pickTime.value && pickTime.value.length >= 5) {

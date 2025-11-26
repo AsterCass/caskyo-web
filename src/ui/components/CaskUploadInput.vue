@@ -102,7 +102,7 @@ const updateFile = () => {
 
 
 <style lang="scss">
-@import "@/styles/independence-components";
+//@import "@/styles/independence-components";
 
 
 </style>

@@ -25,7 +25,7 @@ const props = defineProps({
   },
 })
 
-let showDialogImage = ref(props.modelValue);
+const showDialogImage = ref(props.modelValue);
 watch(() => props.modelValue, () => {
   if (props.modelValue) {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;

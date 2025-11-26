@@ -48,7 +48,7 @@ watch(() => props.modelValue, () => {
   pickDate.value = props.modelValue
 })
 
-let dateUiInput = ref("")
+const dateUiInput = ref("")
 
 function updateUiInput() {
   if (pickDate.value && pickDate.value.length >= 10) {
@@ -77,7 +77,7 @@ onMounted(() => {
 
 <style lang="scss">
 @import "@/styles/independence-components";
-@import "@/styles/override-components";
+//@import "@/styles/override-components";
 
 
 </style>
