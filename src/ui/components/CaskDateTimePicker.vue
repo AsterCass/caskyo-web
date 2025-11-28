@@ -79,7 +79,7 @@ onMounted(() => {
 
 <style lang="scss">
 @import "@/styles/independence-components";
-@import "@/styles/override-components";
+//@import "@/styles/override-components";
 
 
 </style>
